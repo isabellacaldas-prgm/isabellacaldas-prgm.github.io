@@ -1,0 +1,1004 @@
+var quizData = [
+{
+  q: "Al aplicar los principios de orientación a servicios durante el proceso de modelado de servicios, el principio de Contrato de Servicio Estandarizado se considera de alta importancia porque su aplicación define cómo los candidatos a servicio pueden ensamblarse en candidatos a composición de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Esta afirmación es falsa porque el principio dedicado a dictar cómo un servicio participa y se ensambla dentro de una composición es el de Capacidad de Composición de Servicios (Service Composability), no el de Contrato de Servicio Estandarizado."
+},
+{
+  q: "Un proyecto SOA llevado a cabo con un enfoque de arriba hacia abajo puede contener fases que requieren la realización de las siguientes tareas:",
+  options: ["desarrollo de servicios", "diseño de servicios", "análisis de servicios", "pruebas de servicios"],
+  correct: [0,1,2,3],
+  explanation: "Un proyecto SOA top-down abarca todo el ciclo de vida: análisis, diseño, desarrollo y pruebas de servicios."
+},
+{
+  q: "¿Cuál de los siguientes principios de orientación a servicios se aplica comúnmente durante el proceso de modelado de servicios?",
+  options: ["Sin estado del servicio", "Capacidad de modelado del servicio", "Desacoplamiento del servicio", "Reutilización del servicio"],
+  correct: [3],
+  explanation: "Durante el modelado de servicios, el principio de Reutilización del Servicio guía a los analistas para identificar lógica agnóstica (multipropósito) y separarla en candidatos a servicios reutilizables."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es falsa?",
+  options: ["Un candidato a capacidad de servicio puede ser parte de un candidato a servicio.", "Un candidato a servicio puede ser parte de un candidato a composición de servicios.", "Un candidato a servicio puede ser parte de un plan de inventario de servicios.", "Ninguna de estas afirmaciones es falsa."],
+  correct: [3],
+  explanation: "Todas las afirmaciones A, B y C son verdaderas dentro de la terminología SOA, por lo tanto ninguna es falsa."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es verdadera?",
+  options: ["El modelado de servicios es un proceso mediante el cual la lógica del proceso de negocio se descompone en acciones granulares que se agrupan en contratos técnicos de servicios.", "El modelado de servicios es un proceso mediante el cual la lógica del proceso de negocio se descompone en acciones granulares que se agrupan en candidatos a servicios.", "El modelado de servicios es un proceso mediante el cual la lógica del proceso de negocio se descompone en acciones granulares que se someten a un análisis de inventario de servicios.", "Ninguna de estas afirmaciones es verdadera."],
+  correct: [1],
+  explanation: "El modelado de servicios descompone la lógica de negocio en acciones granulares que se agrupan en candidatos a servicios (no contratos técnicos ni análisis de inventario)."
+},
+{
+  q: "¿Qué fase del ciclo de vida de entrega de servicios está compuesta por pasos de recopilación de información y un subproceso de modelado de servicios?",
+  options: ["análisis orientado a servicios", "desarrollo de servicios", "diseño orientado a servicios", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "El análisis orientado a servicios comienza con pasos de recopilación de información y luego ejecuta el subproceso de modelado de servicios."
+},
+{
+  q: "¿Qué ocurre con los pasos del proceso de negocio que se identifican como no adecuados para la encapsulación de servicios durante el proceso de modelado de servicios?",
+  options: ["Se descartan y no forman parte de la solución final.", "Se someten a un proceso de encuentro en el medio por separado.", "Si los pasos implican interacción humana, se reemplazan con servicios que implementan procesamiento de formularios electrónicos.", "Ninguna de las anteriores."],
+  correct: [3],
+  explanation: "Los pasos no adecuados simplemente permanecen como tareas manuales o en sistemas heredados, no se descartan ni se reemplazan obligatoriamente."
+},
+{
+  q: "¿Cuál de los siguientes es un resultado esperado de una iteración del proceso de análisis orientado a servicios?",
+  options: ["una o más arquitecturas de servicios", "uno o más planes de inventario de servicios", "uno o más candidatos a servicios", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "Cada iteración del análisis orientado a servicios produce uno o más candidatos a servicios que se entregan al plano de inventario."
+},
+{
+  q: "En un proceso de análisis orientado a servicios, se anima a los expertos en negocios y tecnología a colaborar directamente para modelar conjuntamente candidatos a servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La colaboración conjunta entre expertos de negocio y tecnología apoya el objetivo de Mayor Alineación entre Negocios y Tecnología."
+},
+{
+  q: "¿Cuáles de las siguientes afirmaciones describe pasos del proceso de negocio que no son adecuados para la encapsulación de servicios?",
+  options: ["pasos manuales del proceso de negocio que no pueden automatizarse", "pasos relacionados con el contexto funcional de una entidad de negocio", "pasos realizados por sistemas heredados que pueden introducir limitaciones de rendimiento inaceptables o riesgos de seguridad", "pasos que contienen lógica de decisión basada en reglas de negocio"],
+  correct: [0,2],
+  explanation: "Los pasos manuales no automatizables y los de sistemas heredados con limitaciones son inadecuados. Los pasos de entidades de negocio y lógica de decisión sí son adecuados para servicios."
+},
+{
+  q: "Las siguientes afirmaciones describen lógica única para un proceso de negocio. ¿Cuáles de estas serían consideradas ejemplos de lógica que normalmente se encapsularía dentro de un candidato a servicio de tarea?",
+  options: ["lógica relacionada con reglas de negocio", "lógica basada en la evaluación de una declaración condicional", "lógica de excepción que especifica qué debe ocurrir cuando se detecta un error", "lógica de composición que determina la secuencia en la que este servicio necesita componer otros servicios"],
+  correct: [0,1,2,3],
+  explanation: "Todas representan lógica no agnóstica de propósito único que un servicio de tarea encapsula: reglas, condiciones, excepciones y secuencia de composición."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones describe un paso que típicamente forma parte de un proceso de análisis orientado a servicios?",
+  options: ["descomponer un proceso de negocio en un conjunto granular de acciones definidas", "identificar y definir candidatos a servicios que pertenecen al modelo de servicio de entidad", "identificar y definir candidatos a servicios que pertenecen al modelo de servicio de utilidad", "Todas las anteriores."],
+  correct: [3],
+  explanation: "El análisis orientado a servicios incluye la descomposición del proceso, la definición de servicios de entidad y la definición de servicios de utilidad."
+},
+{
+  q: "El rol de custodio del registro de servicios está más comúnmente asociado con cuál de las siguientes fases del proyecto?",
+  options: ["diseño orientado a servicios", "pruebas de servicios", "descubrimiento de servicios", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "El custodio del registro de servicios está asociado con la fase de descubrimiento de servicios, asegurando que la información esté disponible para ser encontrada."
+},
+{
+  q: "Con un enfoque de entrega de arriba hacia abajo, la definición del plan de inventario de servicios debe estar completa antes de que pueda comenzar el análisis orientado a servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Es al revés: el plano de inventario se construye incrementalmente como resultado de las iteraciones del análisis orientado a servicios."
+},
+{
+  q: "Los servicios basados en el modelo de servicio de ____________ tienden a encapsular la mayor cantidad de lógica de composición de servicios.",
+  options: ["entidad", "híbrido", "utilidad", "tarea"],
+  correct: [3],
+  explanation: "El servicio de tarea encapsula lógica no agnóstica y asume el rol de controlador de composición, coordinando otros servicios."
+},
+{
+  q: "Aunque el modelado de servicios se enfoca más en la definición ____________ de servicios, las consideraciones de ____________ pueden ayudar a definir requisitos de encapsulación de sistemas heredados.",
+  options: ["física, descubribilidad", "conceptual, autonomía", "física, autonomía", "duplicada, descubribilidad"],
+  correct: [1],
+  explanation: "El modelado es conceptual, y evaluar la autonomía tempranamente ayuda a determinar si los sistemas heredados pueden encapsularse adecuadamente."
+},
+{
+  q: "Un candidato a servicio es:",
+  options: ["un servicio conceptual", "un servicio propuesto que puede no existir físicamente aún", "un servicio modelado producido mediante un proceso de modelado de servicios", "un servicio modelado que inicialmente actúa como punto de partida para el diseño físico del servicio"],
+  correct: [0,1,2,3],
+  explanation: "Todas las opciones describen correctamente un candidato a servicio: es conceptual, propuesto, modelado y sirve como punto de partida para el diseño."
+},
+{
+  q: "Durante el proceso de modelado de servicios, se nota que a un candidato a capacidad de servicio se le asigna la responsabilidad de emitir correos electrónicos y registrar información en una base de datos. ¿Cuáles afirmaciones tienen sentido al aplicar principios de orientación a servicios?",
+  options: ["Se aplica Reutilización del Servicio y el candidato se divide en dos capacidades distintas y genéricas.", "Se aplica Autonomía del Servicio para determinar si el servidor de correo compartido y la BD plantean problemas de autonomía.", "Se aplica Descubribilidad del Servicio para definir más claramente el propósito del candidato.", "Se aplica Sin Estado del Servicio para diferir datos de estado a correos y una tabla de BD."],
+  correct: [0,1,2],
+  explanation: "A, B y C aplican durante el modelado conceptual. D (Sin Estado) pertenece a la fase técnica de diseño, no al modelado."
+},
+{
+  q: "Durante el proceso de modelado, después de que todos los pasos que pertenecen a contextos agnósticos se hayan tenido en cuenta, los pasos que quedan deberían representar lógica potencialmente adecuada para candidatos a servicios de tarea.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La lógica restante (no agnóstica, de propósito único) es la que se encapsula en servicios de tarea mediante el patrón de Abstracción de Procesos."
+},
+{
+  q: "Durante el modelado de servicios, la aplicación del principio de Reutilización del Servicio haría que un analista equipe un candidato a servicio de entidad con capacidades adicionales para facilitar la reutilización futura.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Es práctica recomendada anticipar necesidades futuras y agregar capacidades que complementen el contexto de la entidad para maximizar la reutilización."
+},
+{
+  q: "La entrega de abajo hacia arriba generalmente se enfoca en cumplir requisitos ____________ mientras que la entrega de arriba hacia abajo se enfoca en cumplir requisitos ____________.",
+  options: ["tácticos (a corto plazo), tácticos (a corto plazo)", "estratégicos (a largo plazo), estratégicos (a largo plazo)", "tácticos (a corto plazo), estratégicos (a largo plazo)", "estratégicos (a largo plazo), tácticos (a corto plazo)"],
+  correct: [2],
+  explanation: "Bottom-up es táctico (corto plazo) y top-down es estratégico (largo plazo)."
+},
+{
+  q: "Durante un proceso de modelado, se requiere identificar candidatos a servicios agnósticos. ¿Cuáles opiniones se considerarían buen consejo?",
+  options: ["Aisle los pasos que no son específicos del proceso de negocio para definir candidatos agnósticos.", "Use un diagrama de entidad de negocio para identificar pasos que se relacionen con entidades y definir candidatos de entidad agnósticos.", "Aisle toda la lógica de decisión del flujo y agrúpela en un único candidato agnóstico de tarea.", "Todas las anteriores son buenos consejos."],
+  correct: [0,1],
+  explanation: "A y B son correctos. C es incorrecto porque la lógica de decisión del flujo es no agnóstica y pertenece a servicios de tarea, que NO son agnósticos."
+},
+{
+  q: "¿Por qué a menudo se diseñan los servicios de entidad antes que otros tipos de servicios?",
+  options: ["están centrados en el negocio y la lógica de negocio tiene prioridad", "pueden diseñarse más independientemente porque son genéricos, reutilizables y sus contextos se derivan de modelos de entidad existentes", "proporcionan la lógica menos reutilizable y requieren más atención inicial", "no pueden diseñarse antes que otros tipos de servicios"],
+  correct: [1],
+  explanation: "Los servicios de entidad se diseñan primero por su independencia y alto potencial de reutilización, derivados de modelos de negocio existentes."
+},
+{
+  q: "¿Cuál de los siguientes elementos podría estar contenido en el perfil de nivel de servicio (no el de capacidad)?",
+  options: ["una descripción de la capacidad del servicio", "una descripción del propósito general del servicio", "los valores de entrada y salida de una capacidad", "detalles del rol de una capacidad dentro de una composición"],
+  correct: [1],
+  explanation: "El perfil a nivel de servicio contiene la descripción del propósito general. Los demás son campos del perfil a nivel de capacidad."
+},
+{
+  q: "Un catálogo de servicios es una colección de ____________ para los servicios que pertenecen a un ____________.",
+  options: ["registros de registro de servicios, composición de servicios", "información de perfil de servicios, inventario de servicios", "registros de registro de servicios, composición de servicios", "información de perfil de servicios, accesorio de servicio"],
+  correct: [1],
+  explanation: "Un catálogo de servicios es una colección de información de perfil de servicios para un inventario de servicios."
+},
+{
+  q: "El modelado de servicios es el proceso durante el cual se identifican y definen los candidatos a servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Correcto. Durante el modelado se identifican y definen candidatos a servicios, capacidades y composiciones conceptuales."
+},
+{
+  q: "Debido a que el análisis orientado a servicios es un proceso completado conjuntamente por expertos en negocios y tecnología, apoya el objetivo de Mayor Alineación entre Negocios y Tecnología.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La colaboración directa entre ambos perfiles durante el análisis fomenta la alineación entre negocios y tecnología."
+},
+{
+  q: "Un equipo de proyecto que entrega un servicio agnóstico reutilizable puede sesgar el diseño para cumplir requisitos inmediatos. ¿Qué rol protege la integridad del servicio?",
+  options: ["analista de servicios", "desarrollador de servicios", "custodio de servicios", "Ninguno de los anteriores."],
+  correct: [2],
+  explanation: "El custodio de servicios asume la propiedad y protege la integridad del contexto del servicio contra sesgos de equipos de proyecto."
+},
+{
+  q: "Un perfil de servicio puede indicar que diferentes capacidades de servicio están asignadas a diferentes custodios de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "El perfil permite asignar custodios individuales a capacidades específicas cuando múltiples expertos colaboran en un servicio."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones tiene sentido sobre los enfoques de entrega?",
+  options: ["El enfoque de abajo hacia arriba es táctico y aboga por análisis inicial antes de finalizar el plan.", "El enfoque de arriba hacia abajo es táctico y aboga por análisis inicial.", "El enfoque de abajo hacia arriba es estratégico y aboga por análisis inicial.", "El enfoque de arriba hacia abajo es estratégico (a largo plazo) y aboga por análisis inicial antes de finalizar el plan de inventario."],
+  correct: [3],
+  explanation: "Top-down es estratégico a largo plazo y exige análisis inicial exhaustivo antes de diseñar y desarrollar servicios."
+},
+{
+  q: "La captura de información de descubribilidad durante el modelado de servicios es importante porque:",
+  options: ["aprovecha la experiencia de los expertos de negocio para contribuir descripciones claras", "produce información para el perfil de servicio que luego se usa para poblar un registro", "permite que los servicios se descubran dinámicamente entre sí en tiempo de ejecución", "ayuda a establecer los niveles de autonomía de los servicios"],
+  correct: [0,1],
+  explanation: "A y B son correctas. C es falsa (no se trata de descubrimiento dinámico en runtime). D es falsa (autonomía es independiente de descubribilidad)."
+},
+{
+  q: "¿Cuál de los siguientes no es un objetivo del proceso de análisis orientado a servicios?",
+  options: ["la definición de la tecnología de implementación del servicio", "la agrupación de candidatos a capacidades en candidatos a servicios", "la identificación preliminar de problemas de autonomía del servicio", "la definición de límites preliminares del servicio"],
+  correct: [0],
+  explanation: "La definición de tecnología de implementación pertenece a fases posteriores (diseño), no al análisis conceptual."
+},
+{
+  q: "Dos proyectos concurrentes entregan servicios para el mismo inventario con completa independencia. ¿Cuál es una consecuencia probable?",
+  options: ["Servicios con diferentes estándares, incompatibles e interoperables.", "Servicios con lógica redundante y superpuesta.", "Un equipo puede seguir top-down y otro bottom-up.", "Todas las anteriores."],
+  correct: [3],
+  explanation: "Sin coordinación ni gobernanza centralizada, se producen todas estas consecuencias negativas."
+},
+{
+  q: "¿Cuál de los siguientes es una parte típica de un proceso de análisis de inventario de servicios?",
+  options: ["la definición paso a paso de un proceso de negocio", "la definición de herramientas de desarrollo de servicios", "la definición del plan de inventario de servicios", "Todas las anteriores."],
+  correct: [2],
+  explanation: "El entregable principal del análisis de inventario es el plan (plano) de inventario de servicios."
+},
+{
+  q: "Los enfoques de arriba hacia abajo típicamente ____________ la carga de gobernanza a largo plazo de los servicios.",
+  options: ["aumentan", "disminuyen", "eliminan", "Ninguna de las anteriores."],
+  correct: [1],
+  explanation: "Top-down disminuye la carga de gobernanza futura al crear servicios bien estandarizados y normalizados desde el inicio."
+},
+{
+  q: "Cuando iteraciones posteriores del análisis orientado a servicios producen nuevos candidatos a servicios, ¿qué debería ocurrir?",
+  options: ["Un nuevo servicio de utilidad debe compararse con los existentes para evitar superposición.", "Si se detecta superposición entre servicios de entidad, se deben revisar sus capacidades para combinarlos.", "Al introducir nuevos candidatos a inventario en una empresa grande, el límite existente necesita reevaluarse.", "Si hay superposición, debe documentarse en los perfiles para preservarse cuidadosamente."],
+  correct: [0,1],
+  explanation: "A y B aplican el patrón de Normalización. C usa terminología incorrecta y D contradice la normalización (no se debe preservar superposición)."
+},
+{
+  q: "¿Cuál de las siguientes NO es una razón válida para definir candidatos a composición de servicios durante el modelado?",
+  options: ["Ayuda a determinar el tamaño y complejidad de las composiciones.", "Ayuda a identificar lógica de flujo de trabajo faltante.", "Ayuda a demostrar el orden de invocación entre servicios.", "Conduce directamente a la definición del contrato de servicio para el candidato a inventario."],
+  correct: [3],
+  explanation: "La identificación conceptual de composiciones NO conduce directamente a contratos de servicio reales; los candidatos aún están sujetos a refinamientos."
+},
+{
+  q: "El enfoque de arriba hacia abajo no se recomienda cuando:",
+  options: ["una organización quiere evitar el desarrollo basado en silos", "los servicios se están construyendo para la Web", "la inversión en el análisis inicial introduce riesgo para la organización", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "Top-down no se recomienda cuando el costo y tiempo del análisis inicial pone en riesgo la organización."
+},
+{
+  q: "El modelado de servicios es un proceso durante el cual los servicios y las capacidades se conceptualizan antes de su definición física real y desarrollo.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Correcto. El modelado produce candidatos conceptuales que luego se refinan antes de pasar al diseño físico."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es falsa?",
+  options: ["el análisis orientado a servicios ocurre antes del diseño orientado a servicios", "el modelado de servicios está relacionado con el análisis orientado a servicios", "el análisis de inventario de servicios es un subproceso del diseño orientado a servicios", "el modelado de servicios ocurre antes del diseño orientado a servicios"],
+  correct: [2],
+  explanation: "El análisis de inventario de servicios NO es un subproceso del diseño; son fases completamente separadas."
+},
+{
+  q: "El entregable principal del análisis de inventario de servicios es un ____________ del inventario de servicios.",
+  options: ["leyenda", "arquitectura de composición", "plano", "contrato"],
+  correct: [2],
+  explanation: "El plano (blueprint) de inventario de servicios es el entregable principal del análisis de inventario."
+},
+{
+  q: "¿Cuáles de los siguientes son roles comunes en un proyecto SOA?",
+  options: ["custodio de servicios", "arquitecto de servicios", "analista de negocios", "Todas las anteriores."],
+  correct: [3],
+  explanation: "Todos son roles fundamentales: custodio (gobernanza), arquitecto (diseño), analista de negocios (alineación con negocio)."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es falsa sobre inventarios de dominio?",
+  options: ["Una empresa puede tener múltiples inventarios de dominio.", "El alcance de un inventario de dominio debe representar un dominio bien definido.", "Para habilitar interoperabilidad entre dominios se requiere Inventario de Dominio y Centralización de Lógica.", "El patrón Inventario de Dominio puede aplicarse junto con Capas de Servicio."],
+  correct: [2],
+  explanation: "La Centralización de Lógica tiene alcance dentro de un inventario, no habilita por sí sola la interoperabilidad entre dominios diferentes."
+},
+{
+  q: "¿Qué proceso incluye el subproceso de modelado de servicios y pasos adicionales de recopilación de información?",
+  options: ["modelado de servicios", "candidato a servicio", "diseño de servicios", "Ninguna de las anteriores."],
+  correct: [3],
+  explanation: "El proceso es 'análisis orientado a servicios', que no figura entre las opciones A, B o C."
+},
+{
+  q: "¿Cuáles de las siguientes afirmaciones son verdaderas sobre el patrón Centralización de Lógica?",
+  options: ["Se enfoca en servicios no agnósticos porque son los más propensos a centralización.", "Asegura que la lógica en servicios agnósticos se acceda centralmente vía contratos.", "Es una alternativa al patrón Normalización de Servicios.", "Puede aplicarse junto con el patrón Inventario de Dominio."],
+  correct: [3],
+  explanation: "Solo D es verdadera. A es falsa (se enfoca más en agnósticos), B es parcialmente incorrecta, C es falsa (son complementarios, no alternativos)."
+},
+{
+  q: "Al aplicar el patrón Contexto No Agnóstico, la intención es definir un servicio que es:",
+  options: ["no centrado en el negocio", "no multipropósito", "no centralizado", "Ninguna de las anteriores."],
+  correct: [1],
+  explanation: "El Contexto No Agnóstico define lógica de propósito único (no multipropósito), específica para una tarea particular."
+},
+{
+  q: "La granularidad de capacidad de una capacidad de servicio siempre será la misma que su granularidad de datos.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Son medidas distintas. Una consulta simple (grano fino en capacidad) puede devolver muchos datos (grano grueso en datos)."
+},
+{
+  q: "Asumiendo que el patrón Descomposición de Servicios se ha aplicado, ¿cuál afirmación describe correctamente el resultado?",
+  options: ["La granularidad de los nuevos servicios es más fina que la del servicio original.", "La granularidad de los nuevos servicios es más gruesa que la del original.", "La granularidad de capacidad es más gruesa que la del original.", "Ninguna de estas afirmaciones tiene sentido."],
+  correct: [0],
+  explanation: "Al descomponer un servicio grueso en servicios más pequeños, cada uno tiene un contexto funcional más estrecho y por tanto granularidad más fina."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es verdadera sobre el patrón Recomposición de Capacidades?",
+  options: ["Se aplica cuando una capacidad requiere lógica más allá del límite del servicio.", "Se aplica cuando un servicio no está disponible y otros deben componerse en su lugar.", "Se aplica a través de la aplicación repetida del patrón Composición de Capacidades.", "Ninguna de estas afirmaciones es verdadera."],
+  correct: [2],
+  explanation: "La recomposición se logra cuando un servicio agnóstico participa repetidamente en múltiples composiciones diferentes."
+},
+{
+  q: "¿Cuál de las siguientes combinaciones de capas de servicio no es posible?",
+  options: ["tarea + utilidad", "tarea + entidad", "tarea + entidad + utilidad", "Todas estas combinaciones son posibles."],
+  correct: [3],
+  explanation: "Todas las combinaciones son posibles. Se requieren al menos dos capas y hay flexibilidad según el contexto."
+},
+{
+  q: "Debido a su contexto agnóstico, los microservicios típicamente solo exponen un pequeño número de capacidades de granularidad gruesa.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Falso. Los microservicios tienen contexto NO agnóstico (propósito único). Aunque sí exponen pocas capacidades gruesas, la premisa es incorrecta."
+},
+{
+  q: "El proceso de análisis orientado a servicios descompone la lógica en ____________ preliminares que se agrupan en contextos lógicos llamados ____________.",
+  options: ["modelos de servicio, candidatos a servicio", "candidatos a servicio, candidatos a inventario de servicio", "candidatos a capacidad de servicio, candidatos a inventario de servicio", "Ninguna de las anteriores."],
+  correct: [3],
+  explanation: "La respuesta correcta sería 'candidatos a capacidades de servicio' agrupados en 'candidatos a servicios', pero esa combinación no aparece en las opciones."
+},
+{
+  q: "¿Cuál afirmación es verdadera sobre los contratos de servicios de tarea?",
+  options: ["Generalmente no tienen muchas capacidades porque solo se requieren para iniciar la lógica de composición.", "No tienen muchas capacidades porque el modelo de tarea prohíbe contratos grandes.", "Se diseñan con reutilización en mente y publican muchas capacidades.", "Ninguna de las anteriores es verdadera."],
+  correct: [0],
+  explanation: "Los servicios de tarea exponen pocas capacidades (a menudo una) que actúan como detonante de la composición."
+},
+{
+  q: "¿Cuál de las siguientes afirmaciones es falsa sobre servicios de entidad?",
+  options: ["Se basa en un contexto funcional que corresponde a una o más entidades de negocio.", "Se espera que sea agnóstico (no específico para un único proceso).", "Se construye idealmente para reutilización y recomposición.", "Ninguna de estas afirmaciones es falsa."],
+  correct: [3],
+  explanation: "Todas las afirmaciones A, B y C son verdaderas sobre los servicios de entidad."
+},
+{
+  q: "Un candidato a servicio es equivalente a un contrato técnico de servicio.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "No son equivalentes. Los candidatos son conceptuales; los contratos técnicos se crean en la fase posterior de diseño orientado a servicios."
+},
+{
+  q: "Los requisitos de descubrimiento de servicios pueden introducir la necesidad de establecer un registro de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Cuando los inventarios crecen, los requisitos de descubrimiento hacen necesario un registro centralizado para encontrar servicios existentes."
+},
+{
+  q: "Un perfil de servicio regular documenta información en los siguientes dos niveles:",
+  options: ["servicio y capacidad", "servicio y repositorio", "servicio e inventario", "servicio y empresa"],
+  correct: [0],
+  explanation: "El perfil se organiza en un perfil a nivel de servicio y uno o más perfiles a nivel de capacidad."
+},
+{
+  q: "¿Cuáles tipos de información se documentan en un perfil de servicio?",
+  options: ["políticas relacionadas con el servicio", "composiciones en las que participa el servicio", "el estado de entrega del servicio", "el/los custodio(s) del servicio"],
+  correct: [0,1,2,3],
+  explanation: "Todas se documentan: políticas, composiciones, estado de entrega y custodios."
+},
+{
+  q: "Los documentos de perfil de servicio a menudo terminan formando la base de registros del catálogo de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La información de los perfiles de servicio alimenta los registros del catálogo/registro de servicios para descubrimiento."
+},
+{
+  q: "El _________ posee las responsabilidades de gestión y gobernanza de uno o más servicios específicos.",
+  options: ["Custodio de Servicios", "Arquitecto de Servicios", "Desarrollador", "Analista de Servicios"],
+  correct: [0],
+  explanation: "El custodio de servicios asume la responsabilidad de administración y gobernanza a lo largo del ciclo de vida."
+},
+{
+  q: "El _________ se especializa en las áreas de análisis orientado a servicios y modelado de servicios.",
+  options: ["Custodio de Servicios", "Arquitecto de Servicios", "Desarrollador", "Analista de Servicios"],
+  correct: [3],
+  explanation: "El analista de servicios se especializa en análisis y modelado, definiendo candidatos a servicios conceptualmente."
+},
+{
+  q: "Tres roles tradicionales que realizan funciones de Analista de Servicios incluyen:",
+  options: ["Custodio, Analista, Arquitecto Tecnológico", "Analista, Arquitecto Tecnológico, Custodio", "Desarrollador, Analista, Custodio", "Analista de Negocios, Arquitecto Tecnológico, Arquitecto de Datos"],
+  correct: [3],
+  explanation: "Analista de negocios, arquitecto tecnológico y arquitecto de datos son los roles tradicionales que asumen funciones de analista de servicios."
+},
+{
+  q: "El análisis orientado a servicios produce candidatos a servicios, que se entregan en el plan de inventario de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Los candidatos producidos en cada iteración se documentan en el plano de inventario de servicios."
+},
+{
+  q: "Durante el modelado de servicios, la lógica de procesamiento se agrupa y se propone como un candidato a capacidad de servicio en el contexto de un candidato a servicio.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Las acciones granulares se agrupan como candidatos a capacidades dentro del contexto funcional de un candidato a servicio."
+},
+{
+  q: "Un candidato a composición de servicios es el resultado de que los candidatos a servicios y capacidades se compongan juntos.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Los candidatos a servicios y capacidades se ensamblan conceptualmente para evaluar cómo automatizarían el proceso de negocio."
+},
+{
+  q: "Cuanto más detallada sea la lógica de validación, más ___________ será la granularidad de restricción.",
+  options: ["Gruesa", "De Datos", "Fina", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "Más restricciones y validaciones detalladas = granularidad de restricción más fina."
+},
+{
+  q: "Cuanto mayor sea la cantidad de funcionalidad proporcionada por una capacidad, más ________ es su granularidad.",
+  options: ["Gruesa", "De Datos", "Fina", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Mayor funcionalidad = granularidad de capacidad más gruesa."
+},
+{
+  q: "La granularidad de servicio representa la lógica potencial que un servicio puede encapsular, no necesariamente su lógica implementada.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La granularidad de servicio se determina por el contexto funcional asignado, no por la funcionalidad ya implementada."
+},
+{
+  q: "La ________ se refiere a la cantidad de datos procesados por una capacidad determinada.",
+  options: ["Granularidad de servicio", "Granularidad de datos", "Granularidad de restricción", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "La granularidad de datos mide la cantidad de datos intercambiados por una capacidad de servicio."
+},
+{
+  q: "La aplicación del patrón __________ resulta en la definición de un único plan de inventario de servicios para una empresa.",
+  options: ["Inventario Empresarial", "Inventario de Dominio", "Inventario Geográfico", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "El patrón Inventario Empresarial establece un único plano de inventario para toda la empresa."
+},
+{
+  q: "La aplicación del patrón ________ posiciona cada servicio como el único punto de acceso para la lógica que encapsula.",
+  options: ["Capas de Servicio", "Normalización de Servicios", "Centralización de la Lógica", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "La Centralización de la Lógica establece cada servicio como el único punto de acceso para su lógica según su límite funcional."
+},
+{
+  q: "La aplicación del patrón _________ resulta en la definición de múltiples planes de inventario de dominio.",
+  options: ["Inventario Empresarial", "Inventario de Dominio", "Inventario Geográfico", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "El patrón Inventario de Dominio crea múltiples planos específicos por dominio dentro de la empresa."
+},
+{
+  q: "Los servicios entregados con funcionalidad superpuesta conducen a la desnormalización del inventario de servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La funcionalidad superpuesta genera lógica redundante, es decir, desnormalización del inventario."
+},
+{
+  q: "El patrón _______ establece que cualquier servicio dentro de un inventario tenga un contexto funcional que no se superponga con otro.",
+  options: ["Capas de Servicio", "Normalización de Servicios", "Centralización de la Lógica", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "La Normalización de Servicios evita la superposición funcional entre servicios del mismo inventario."
+},
+{
+  q: "Al descomponer la lógica, se agrupa en contextos funcionales ____________ y __________.",
+  options: ["Agnósticos y de Utilidad", "Agnósticos y no Agnósticos", "De Negocio y de Utilidad", "De Tarea y Agnósticos"],
+  correct: [1],
+  explanation: "La separación fundamental es entre lógica agnóstica (multipropósito) y no agnóstica (propósito único)."
+},
+{
+  q: "El análisis orientado a servicios representa una forma distinta en la que se lleva a cabo la separación de preocupaciones.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "SOA aplica la separación de preocupaciones al dividir la lógica en contextos agnósticos y no agnósticos."
+},
+{
+  q: "La lógica que es lo suficientemente genérica como para no ser específica de una tarea particular se clasifica como lógica __________.",
+  options: ["De Utilidad", "Agnóstica", "No Agnóstica", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "La lógica genérica y multipropósito se clasifica como agnóstica."
+},
+{
+  q: "La lógica que tiene requisitos específicos de rendimiento o confiabilidad se aísla mediante la abstracción microtarea.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "La abstracción de microtareas aísla lógica con necesidades especiales de rendimiento o confiabilidad en la capa de microservicios."
+},
+{
+  q: "Es crítico que las capacidades de servicio estén diseñadas para __________ porque representa el requisito más fundamental de la computación orientada a servicios.",
+  options: ["Consumo", "Reutilización", "Composición", "Recomposición"],
+  correct: [3],
+  explanation: "La recomposición (composición repetida) es el requisito más fundamental para alcanzar los objetivos estratégicos de SOA."
+},
+{
+  q: "Cuando una capacidad de servicio requiere lógica que existe más allá del límite del servicio, debe _____________ otras capacidades.",
+  options: ["Absorber", "Reutilizar", "Componer", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "Si la lógica está fuera del límite del servicio, debe componer (invocar) otras capacidades de servicio."
+},
+{
+  q: "Lo fundamentalmente distinto sobre cómo la orientación a servicios posiciona los servicios agnósticos es que son repetidamente _______, permitiendo la recomposición.",
+  options: ["Agnósticos", "Reutilizables", "Autónomos", "Componibles"],
+  correct: [3],
+  explanation: "Los servicios agnósticos se diseñan para ser componibles repetidamente en múltiples composiciones."
+},
+{
+  q: "La granularidad de restricción se mide en relación con la lógica de validación presente en el contrato de servicio.",
+  options: ["Granularidad de datos", "Granularidad de restricción", "Granularidad de capacidad", "Granularidad de servicio"],
+  correct: [1],
+  explanation: "La granularidad de restricción se mide por la lógica de validación expresada en los modelos de datos del contrato."
+},
+{
+  q: "________ está determinada por el contexto funcional general del servicio, no por la funcionalidad implementada físicamente.",
+  options: ["Granularidad de datos", "Granularidad de restricción", "Granularidad de capacidad", "Granularidad de servicio"],
+  correct: [3],
+  explanation: "La granularidad de servicio se establece por el contexto funcional general, no por lo que ya está implementado."
+},
+{
+  q: "El patrón ____________ permite la evolución de recursos web sin comprometer los programas de consumidor.",
+  options: ["Endpoint ligero", "Enlace de entidades", "Redireccionamiento de endpoints", "Capacidad de proxy"],
+  correct: [2],
+  explanation: "El Redireccionamiento de Endpoints permite evolucionar recursos web redirigiendo al consumidor a la nueva ubicación."
+},
+{
+  q: "____________ es una medida de la lógica de procesamiento encapsulada por una capacidad de servicio.",
+  options: ["Granularidad de datos", "Granularidad de restricción", "Granularidad de capacidad", "Granularidad de servicio"],
+  correct: [2],
+  explanation: "La granularidad de capacidad mide cuánta lógica de procesamiento encapsula una capacidad específica."
+},
+{
+  q: "____________ es una medida de la cantidad de datos intercambiados por una capacidad de servicio.",
+  options: ["Granularidad de datos", "Granularidad de restricción", "Granularidad de capacidad", "Granularidad de servicio"],
+  correct: [0],
+  explanation: "La granularidad de datos mide la cantidad de datos que intercambia una capacidad."
+},
+{
+  q: "El patrón Capacidad Proxy devuelve datos directamente, Redirección de Endpoints devuelve un enlace al nuevo endpoint. ¿Qué patrón devuelve un enlace a la ubicación de los datos?",
+  options: ["Endpoint ligero", "Enlace de entidades", "Redireccionamiento de endpoints", "Capacidad de proxy"],
+  correct: [1],
+  explanation: "El patrón Enlace de Entidades devuelve un enlace a la ubicación de los datos deseados."
+},
+{
+  q: "El patrón ___________ preserva el contexto funcional existente mientras permite que la lógica de capacidad se separe físicamente.",
+  options: ["Capacidad distribuida", "Enlace de entidades", "Redireccionamiento de endpoints", "Capacidad de proxy"],
+  correct: [0],
+  explanation: "La Capacidad Distribuida preserva el contexto funcional permitiendo la separación física de la lógica."
+},
+{
+  q: "Después de descomponer un servicio, el patrón _________ protege al consumidor permitiendo acceder a la nueva capacidad en su ubicación anterior.",
+  options: ["Endpoint ligero", "Enlace de entidades", "Redireccionamiento de endpoints", "Capacidad de proxy"],
+  correct: [3],
+  explanation: "La Capacidad de Proxy mantiene el contrato original para que los consumidores no se vean afectados inmediatamente."
+},
+{
+  q: "El patrón _________ identifica lógica con requisitos especializados y la posiciona en la capa de microservicios.",
+  options: ["Endpoint ligero", "Enlace de entidades", "Microtarea", "Capacidad de proxy"],
+  correct: [2],
+  explanation: "La Abstracción de Microtareas extrae lógica con necesidades especiales de rendimiento/confiabilidad hacia microservicios."
+},
+{
+  q: "Cuanto menos superposición funcional se permite en un inventario, menos lógica redundante existe, y más desnormalizado se vuelve el inventario.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Falso. Menos superposición = menos redundancia = MÁS normalizado (no más desnormalizado)."
+},
+{
+  q: "_______ de un inventario de servicios conduce a la incapacidad de reutilizar servicios y causa problemas de gobernanza.",
+  options: ["Normalización", "Centralización de la Lógica", "Desnormalización", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "La desnormalización (servicios con funcionalidad redundante) impide la reutilización adecuada."
+},
+{
+  q: "Tanto Normalización de Servicios como Centralización de Lógica introducen estandarización básica en un inventario.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Ambos patrones trabajan juntos para establecer estandarización de base: normalización evita superposición, centralización establece puntos únicos de acceso."
+},
+{
+  q: "Mediante el patrón _________, un servicio de granularidad gruesa se descompone en servicios de granularidad fina con contextos funcionales propios.",
+  options: ["Endpoint ligero", "Enlace de entidades", "Redireccionamiento de endpoints", "Descomposición de servicios"],
+  correct: [3],
+  explanation: "La Descomposición de Servicios divide un servicio grueso en servicios finos que colectivamente representan la funcionalidad original."
+},
+{
+  q: "Enumere tres roles de proyecto SOA.",
+  options: ["Analista de servicios, Desarrollador, Custodio", "Analista de servicios, Arquitecto de servicios, Custodio de servicios", "Arquitecto de Datos, Desarrollador, Analista", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "Los tres roles SOA específicos son: analista de servicios, arquitecto de servicios y custodio de servicios."
+},
+{
+  q: "Dos patrones fundamentales para definir un plan de inventario determinando su alcance son:",
+  options: ["Inventario Empresarial, Inventario de Dominio", "Inventario de Dominio, Centralización de la lógica", "Inventario Empresarial, Centralización de la lógica", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Inventario Empresarial e Inventario de Dominio son los dos patrones que definen el alcance del inventario."
+},
+{
+  q: "El alcance de la lógica de validación para una capacidad define el nivel de __________ de la capacidad.",
+  options: ["Granularidad de datos", "Granularidad de restricción", "Granularidad de capacidad", "Granularidad de servicio"],
+  correct: [1],
+  explanation: "La extensión de la lógica de validación determina la granularidad de restricción."
+},
+{
+  q: "Enumere al menos dos patrones que forman la base de un proceso de modelado de servicios primitivo.",
+  options: ["Descomposición Funcional, Encapsulación de Servicios", "Abstracción de Servicios, Composición de Servicios", "Endpoint Ligero, Redireccionamiento de Endpoint", "Contexto no Agnóstico, Autonomía de Servicio"],
+  correct: [0],
+  explanation: "Descomposición Funcional y Encapsulación de Servicios son patrones base del modelado primitivo."
+},
+{
+  q: "¿Cuáles son los dos tipos de estandarización de contratos?",
+  options: ["Definición técnica, Definición Tecnológica", "Contratos REST, Contratos SOAP", "Estandarización Funcional, Estandarización de Representación de Datos", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "Los dos tipos son: Estandarización Funcional y Estandarización de Representación de Datos (Modelo de Datos)."
+},
+{
+  q: "El patrón __________ establece que los contextos funcionales de dos servicios no se superponen.",
+  options: ["Normalización", "Centralización de la Lógica", "Desnormalización", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "La Normalización de Servicios establece que no haya superposición funcional entre servicios."
+},
+{
+  q: "El rol _____ se concentra en el diseño físico de servicios.",
+  options: ["Analista de servicios", "Arquitecto de servicios", "Arquitecto de Datos", "Custodio de servicios"],
+  correct: [1],
+  explanation: "El arquitecto de servicios se enfoca en el diseño físico de los contratos y la arquitectura de la lógica del servicio."
+},
+{
+  q: "Los niveles de granularidad relacionados con la definición de cualquier servicio son:",
+  options: ["Granularidad de Servicio, Granularidad de Capacidad", "Granularidad de Contrato, Granularidad de Servicio", "Granularidad de Restricción, Granularidad de Datos", "Los servicios no tienen granularidad"],
+  correct: [0,2],
+  explanation: "Los cuatro niveles son: Granularidad de Servicio, de Capacidad, de Restricción y de Datos."
+},
+{
+  q: "El principio _____ está dedicado exclusivamente a moldear un servicio en un participante de composición efectivo.",
+  options: ["Analista de servicios", "Recomposición de Servicio", "Composición de Servicio", "Custodio de servicios"],
+  correct: [2],
+  explanation: "El principio de Composición de Servicios (Service Composability) moldea un servicio para participar efectivamente en composiciones."
+},
+{
+  q: "Una Capa de Servicio es una colección de servicios relacionados por el tipo de lógica que encapsulan.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Una capa de servicio agrupa servicios que comparten el mismo tipo de lógica (tarea, entidad, utilidad, microservicio)."
+},
+{
+  q: "Tres fuentes comunes para alcances de inventario de dominio son:",
+  options: ["Dominio Tecnológico, Empresarial, Funcional", "Dominio de Negocio, TI Organizacional, Geografía", "Dominio de Negocio, Empresarial, Geografía", "Solo existe un inventario de dominio"],
+  correct: [1],
+  explanation: "Las tres fuentes son: Dominio de Negocio, TI Organizacional y Geografía."
+},
+{
+  q: "La orientación a servicios posiciona los servicios agnósticos para que sean componibles, apoyando la composición y posterior recomposición.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Los servicios agnósticos se posicionan como componibles para participar repetidamente en diferentes composiciones."
+},
+{
+  q: "Tres patrones de diseño que definen la estructura general de un alcance de inventario son:",
+  options: ["Capas de Servicio, Centralización de Lógica, Normalización de Servicios", "Centralización, Granularidad de Servicio, Abstracción Funcional", "Inventario de Dominio, Inventario Empresarial, Normalización", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Capas de Servicio, Centralización de Lógica y Normalización de Servicios definen la estructura interna del inventario."
+},
+{
+  q: "Un candidato a servicio representa un servicio conceptual que se modela pero aún no es real.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Correcto. Un candidato a servicio es conceptual y preliminar, pendiente de diseño y desarrollo físico."
+},
+{
+  q: "_______ representa la primera fase en el ciclo de vida de entrega de servicios.",
+  options: ["Análisis Orientado a Servicios", "Centralización de la Lógica", "Inventario de Servicios", "Modelado de Servicios"],
+  correct: [0],
+  explanation: "El análisis orientado a servicios es la primera fase del ciclo de vida de entrega."
+},
+{
+  q: "Una estrategia _________ prioriza los requerimientos inmediatos, mientras que una __________ aboga por completar el análisis de inventario primero.",
+  options: ["de arriba hacia abajo, de abajo hacia arriba", "de abajo hacia arriba, de arriba hacia abajo", "de arriba hacia abajo, de encuentro en el medio", "Modelado de Servicios"],
+  correct: [1],
+  explanation: "Bottom-up prioriza lo inmediato (táctico); top-down exige análisis previo (estratégico)."
+},
+{
+  q: "La información del Perfil de Servicio a menudo formará la base para __________ posteriores.",
+  options: ["Diseño de Servicios", "Registros de servicio", "Inventario de Servicios", "Ninguno de los anteriores"],
+  correct: [1],
+  explanation: "La información de los perfiles alimenta los registros de servicio para descubrimiento."
+},
+{
+  q: "Un registro de servicio típicamente contendrá un subconjunto de los datos de un perfil debido al Principio __________.",
+  options: ["Composición", "Reusabilidad", "Abstracción", "Todos los anteriores"],
+  correct: [2],
+  explanation: "El principio de Abstracción limita la información publicada, por lo que el registro contiene un subconjunto del perfil."
+},
+{
+  q: "Un _______ es un documento estandarizado para recopilar información sobre un servicio desde su inicio y a lo largo de su vida útil.",
+  options: ["Contrato de Servicio", "Inventario de Servicios", "Perfil de Servicio", "Ninguno de los anteriores"],
+  correct: [2],
+  explanation: "El Perfil de Servicio es el documento vivo que se actualiza durante todo el ciclo de vida del servicio."
+},
+{
+  q: "¿Durante qué etapa del Proyecto SOA se toman las decisiones de planificación fundamentales?",
+  options: ["Modelado de Servicios", "Diseño de Servicios", "Planeación de la adopción de SOA", "Definición de enfoque de análisis SOA"],
+  correct: [2],
+  explanation: "Las decisiones fundamentales de planificación se toman durante la etapa de planeación de la adopción de SOA."
+},
+{
+  q: "Un conjunto de perfiles de servicio para un inventario establece un ___________, parte fundamental del plan de inventario.",
+  options: ["Catálogo de Servicios", "Inventario de Servicios", "Inventario de dominio", "Ninguno de los anteriores"],
+  correct: [0],
+  explanation: "El catálogo de servicios es la colección de perfiles que forma parte de la documentación del plano de inventario."
+},
+{
+  q: "Una clave para reconocer lógica que puede pertenecer a un microservicio es estudiar sus requisitos de rendimiento o confiabilidad.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Los microservicios se crean para aislar lógica con necesidades especiales de rendimiento o confiabilidad."
+},
+{
+  q: "Patrones relacionados con la definición de candidatos a servicios de entidad incluyen:",
+  options: ["Inventario de dominio, Contexto Agnóstico, Contexto de Utilidad", "Capacidad Agnóstica, Abstracción de Entidad, Centralización de la Lógica", "Capacidad Agnóstica, Abstracción de Microtareas, Normalización", "Todos los anteriores"],
+  correct: [1],
+  explanation: "Capacidad Agnóstica, Abstracción de Entidad y Centralización de la Lógica se relacionan con servicios de entidad."
+},
+{
+  q: "¿Qué patrón SOA está más estrechamente relacionado con la teoría de separación de preocupaciones en el modelado de servicios?",
+  options: ["Centralización de la lógica", "Normalización de Servicios", "Descomposición Funcional", "Todas las anteriores"],
+  correct: [2],
+  explanation: "La Descomposición Funcional es la base de la separación de preocupaciones en las etapas tempranas del modelado."
+},
+{
+  q: "Para llevar a cabo completamente el análisis orientado a servicios y un proceso de modelado, se requiere un enfoque _____.",
+  options: ["de arriba hacia abajo", "de abajo hacia arriba", "de encuentro en el medio", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Solo el enfoque top-down permite realizar un análisis y modelado completo del inventario."
+},
+{
+  q: "Los dos tipos de secciones de un perfil de servicio son: un perfil de nivel de servicio y uno o más perfiles de capacidad.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Correcto. El perfil se organiza en un nivel de servicio y uno o más niveles de capacidad."
+},
+{
+  q: "En el ciclo de análisis de inventario, modelar ________ se asocia con el paso Definir Arquitectura Tecnológica.",
+  options: ["El Inventario de Servicios", "Los servicios de entidad", "El contrato uniforme", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "El modelado del contrato uniforme se asocia con el paso de definir la arquitectura tecnológica."
+},
+{
+  q: "¿Cuáles acciones son adecuadas de identificar para un proceso de modelado de servicios REST?",
+  options: ["acciones con evidente potencial de reutilización", "pasos manuales que necesitan ser realizados por humanos", "candidatos a capacidades de servicio agnósticas", "lógica de sistemas heredados que no pueden ser encapsulados"],
+  correct: [0,2],
+  explanation: "Para REST se identifican acciones reutilizables y capacidades agnósticas. Los pasos manuales y lógica no encapsulable se filtran."
+},
+{
+  q: "En el ciclo de análisis de inventario, modelar el contrato uniforme está asociado con el paso Definir Plan de Inventario de Servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Falso. El contrato uniforme se asocia con Definir Arquitectura Tecnológica, no con el Plan de Inventario."
+},
+{
+  q: "¿Cuál afirmación es falsa sobre entidades y recursos?",
+  options: ["Las entidades están centradas en el negocio y se derivan de modelos empresariales.", "Los recursos pueden estar centrados en el negocio o no.", "Las entidades comúnmente se limitan a artefactos y documentos empresariales.", "Ninguna de las anteriores."],
+  correct: [3],
+  explanation: "Todas las afirmaciones A, B y C son verdaderas, por lo tanto ninguna es falsa."
+},
+{
+  q: "Con contratos REST, las capacidades de servicio incorporan métodos y tipos de medios definidos por un contrato uniforme general.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "En REST, las capacidades usan los métodos HTTP y media types definidos por el contrato uniforme."
+},
+{
+  q: "Con respecto a los grupos de servicios (service pools), ¿cuál afirmación es falsa?",
+  options: ["Cada candidato a servicio se modela en su propio carril.", "Los servicios modelados en el grupo son principalmente servicios de tarea.", "Las tareas en un carril representan candidatos a capacidades de servicio.", "Ninguna de las anteriores."],
+  correct: [1],
+  explanation: "Los servicios en los pools NO son principalmente de tarea; incluyen entidad, utilidad y otros tipos agnósticos."
+},
+{
+  q: "La estrategia _____________ se enfoca tácticamente priorizando requisitos de negocio inmediatos.",
+  options: ["encuentro-en-el-medio", "de arriba hacia abajo", "de abajo hacia arriba", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "La estrategia bottom-up es la que se enfoca tácticamente en los requerimientos inmediatos."
+},
+{
+  q: "¿Cuál factor se evalúa durante la etapa inicial de planificación de adopción de SOA?",
+  options: ["evaluación de riesgos", "sistema de gestión", "metodología", "Todas las anteriores."],
+  correct: [3],
+  explanation: "Evaluación de riesgos, sistema de gestión y metodología se evalúan durante la planificación de adopción."
+},
+{
+  q: "¿Cuáles son campos de perfil a nivel de capacidad?",
+  options: ["Custodio", "Modelo de Servicio", "Rol de Composición", "Palabras clave"],
+  correct: [0,2,3],
+  explanation: "Custodio, Rol de Composición y Palabras clave son campos a nivel de capacidad. Modelo de Servicio es a nivel de servicio."
+},
+{
+  q: "En el ciclo de vida de análisis de inventario, el modelado de contrato uniforme puede incluirse como una tarea iterativa.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "El modelado del contrato uniforme puede realizarse iterativamente dentro del ciclo de análisis de inventario."
+},
+{
+  q: "Es el proceso mediante el cual se identifican, definen y agrupan en contextos lógicos los candidatos a capacidades de servicio.",
+  options: ["Automatización de sistemas", "Alcance de análisis", "Modelado de servicios", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "El modelado de servicios es el proceso que identifica y agrupa candidatos a capacidades en contextos lógicos."
+},
+{
+  q: "Al llevar a cabo el proceso de análisis _________, iteramos a través del análisis _________ siete veces antes de completar el ____________.",
+  options: ["De inventario de servicios, orientado a servicios, plan de inventario de servicios.", "Modelado de servicios, orientado a servicios, plan de inventario.", "De inventario de servicios, modelado de servicios, plan de inventario.", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "El análisis de inventario de servicios itera a través del análisis orientado a servicios múltiples veces para completar el plan de inventario."
+},
+{
+  q: "Aplicamos el patrón _________ (3 inventarios). A cada uno aplicamos _________ con diferentes capas. El primero solo soporta tarea y utilidad, usando los patrones _________ y _______.",
+  options: ["Inventario Empresarial, Capas de servicio, Abstracción de Procesos, Abstracción de Utilidad", "Inventario de Dominio, Capas de servicio, Abstracción de Procesos, Abstracción de Utilidad", "Inventario de Dominio, Capas de servicio, Abstracción de Entidad, Abstracción de Utilidad", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "Inventario de Dominio (múltiples planes), Capas de Servicio (estructura), y para tarea+utilidad: Abstracción de Procesos + Abstracción de Utilidad."
+},
+{
+  q: "Para distinguir si lógica agnóstica pertenece a entidad o utilidad: el patrón _________ aísla lógica de negocio y el patrón _________ aísla lógica de tecnología.",
+  options: ["Abstracción de Procesos, Abstracción de Utilidad", "Abstracción de Procesos, Abstracción de Entidad", "Abstracción de Entidad, Abstracción de Utilidad", "Todas las opciones son válidas"],
+  correct: [2],
+  explanation: "Abstracción de Entidad aísla la lógica agnóstica de negocio; Abstracción de Utilidad aísla la lógica agnóstica tecnológica."
+},
+{
+  q: "Tenía lógica de propósito único (patrón ______). No pude aplicar el patrón ______ porque pertenece a un servicio con lógica multipropósito.",
+  options: ["Contexto No Agnóstico, Capacidades Agnósticas", "Abstracción de Utilidad, Capacidades Agnósticas", "Capacidades agnósticas, Abstracción de procesos", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Contexto No Agnóstico define lógica de propósito único. Capacidades Agnósticas pertenece a servicios multipropósito (agnósticos)."
+},
+{
+  q: "Evitamos superposición funcional con ________. También aplicamos ________ para posicionar cada servicio como único punto de acceso. Esto apoya el principio ________ durante el modelado.",
+  options: ["Normalización, Centralización de Lógica, Reutilización de Servicios", "Inventario de Dominios, Abstracción de Entidad, Autonomía", "Normalización, Abstracción de Entidad, Composición", "Normalización, Centralización de la lógica, Autonomía"],
+  correct: [0],
+  explanation: "Normalización evita superposición, Centralización posiciona como punto único de acceso, y juntos apoyan la Reutilización de Servicios."
+},
+{
+  q: "Una colección REST consistente en métodos HTTP usa el patrón _______, que facilita aplicar el patrón ________.",
+  options: ["Endpoint ligero, Enlace de Entidades", "Contrato Reutilizable, Enlace de Entidades", "Contrato Reutilizable, Capacidad de Proxy", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "El Contrato Reutilizable da consistencia en métodos HTTP, y facilita el Enlace de Entidades."
+},
+{
+  q: "Primero aplicamos _________ para filtrar lógica no adecuada, luego ____________ y __________ para definir candidatos con alto potencial de reutilización.",
+  options: ["Encapsulación de Servicios, Contexto Agnóstico, Capacidad Agnóstica", "Composición de Servicios, Contexto Agnóstico, Abstracción de Procesos", "Encapsulación de Servicios, Contexto Agnóstico, Abstracción de Utilidad", "Capacidades Agnósticas, Abstracción de Procesos, Abstracción de Utilidad"],
+  correct: [0],
+  explanation: "Encapsulación filtra lo inadecuado; Contexto Agnóstico y Capacidad Agnóstica definen candidatos reutilizables."
+},
+{
+  q: "Modelamos 6 candidatos, los agregamos al ___________ (que ya tenía 12). Tres fueron co-modelados por expertos de negocio quienes contribuyeron apoyando el principio ________.",
+  options: ["Inventario de Dominio, Reutilización", "Inventario de Dominio, Descubribilidad", "Plan de inventario, Descubribilidad de Servicios", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "Los candidatos se agregan al plan (plano) de inventario. Los expertos de negocio apoyan la Descubribilidad con descripciones claras."
+},
+{
+  q: "El patrón _______ crea servicios de granularidad más fina. El patrón __________ aumenta la granularidad haciendo servicios más gruesos.",
+  options: ["Descomposición de Servicios, Capacidad Descompuesta", "Centralización de la lógica, Capacidad descompuesta", "Descomposición de Servicios, Capacidad Agnóstica", "Capacidad descompuesta, normalización"],
+  correct: [0],
+  explanation: "Descomposición de Servicios crea servicios más finos; Capacidad Descompuesta aumenta el contexto funcional haciéndolo más grueso."
+},
+{
+  q: "Al completar el proceso ______ pude aplicar el principio ________ para hacer las capacidades más genéricas y multipropósito.",
+  options: ["Diseño de Servicios, Composición", "Centralización de la lógica, Reutilización", "Descomposición de Servicios, Autonomía", "Modelado de servicios, Reutilización de Servicios"],
+  correct: [3],
+  explanation: "Durante el modelado de servicios se aplica Reutilización para hacer las capacidades más genéricas y multipropósito."
+},
+{
+  q: "Los servicios de entidad eran de granularidad muy fina compartiendo una BD. Aplicamos el principio _____ y creamos uno grueso. Luego podremos aplicar ________ para dividirlo.",
+  options: ["Autonomía de Servicios, Descomposición de Servicios", "Reutilización, Capacidad Agnóstica", "Autonomía, Centralización de la Lógica", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Autonomía advierte del problema de BD compartida. Se crea uno grueso que luego puede descomponerse con Descomposición de Servicios."
+},
+{
+  q: "La dimensión de interpretabilidad del principio _________ es compatible con REST con patrón _________. Esto admite el principio _________.",
+  options: ["Descubribilidad, Capacidad Agnóstica, Reutilización", "Descubribilidad, Contrato Reutilizable, Contrato de Servicio Estandarizado", "Autonomía, Contrato Reutilizable, Contrato Estandarizado", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "Descubribilidad + Contrato Reutilizable (expresión funcional consistente) + soporta Contrato de Servicio Estandarizado."
+},
+{
+  q: "Debatíamos entre ________ o __________ para el alcance. Al ver que podíamos crear capas con ________, procedimos con ________.",
+  options: ["Inventario de Dominio, Centralización, Capas de Servicio, Inventario Empresarial", "Inventario de Dominio, Inventario Empresarial, Normalización, Inventario Empresarial", "Inventario de Dominio, Inventario Empresarial, Capas de Servicio, Inventario Empresarial", "Inventario Empresarial, Inventario de Dominio, Capas de Servicio, Inventario Empresarial"],
+  correct: [2],
+  explanation: "Se debatió Dominio vs Empresarial. Las Capas de Servicio dieron confianza para manejar un solo Inventario Empresarial."
+},
+{
+  q: "Desplegamos un servicio de tarea con una capacidad problemática. Aplicamos ______ para separar la lógica como microservicio. Para no romper el contrato, aplicamos _______.",
+  options: ["Abstracción de Microtarea, Capacidad Distribuida", "Abstracción de Microtarea, Capacidad Agnóstica", "Capacidad Agnóstica, Capacidad Distribuida", "Ninguna de las anteriores"],
+  correct: [0],
+  explanation: "Abstracción de Microtarea extrae la lógica al microservicio; Capacidad Distribuida preserva el contrato existente."
+},
+{
+  q: "El patrón ________ preserva un contrato tras descomposición con _________. Con REST, es más natural aplicar _________ para informar la nueva ubicación.",
+  options: ["Capacidad de Proxy, Descomposición, Endpoint Ligero", "Capacidad Proxy, Descomposición de Servicios, Redirección de Endpoints", "Capacidad Proxy, Centralización, Redirección de Endpoints", "Capacidad Agnóstica, Descomposición, Redirección de Endpoints"],
+  correct: [1],
+  explanation: "Capacidad Proxy preserva el contrato tras Descomposición. En REST, Redirección de Endpoints informa la nueva ubicación."
+},
+{
+  q: "Mi inventario se organizó en capas con _________. Esto me permite aplicar ________ y _______ para definir servicios de entidad y tarea.",
+  options: ["Centralización, Abstracción de Entidad, Abstracción de Proceso", "Capas de Servicio, Capacidad Agnóstica, Abstracción de Proceso", "Capas de Servicio, Abstracción de Entidad, Abstracción de Proceso", "Ninguna de las anteriores"],
+  correct: [2],
+  explanation: "Capas de Servicio organiza la estructura. Abstracción de Entidad define servicios de entidad, Abstracción de Proceso define servicios de tarea."
+},
+{
+  q: "Al realizar el ________, teníamos demasiados modelos para un único inventario. Aplicamos ________ para un plan que represente solo un segmento.",
+  options: ["Análisis de inventario de servicios, Inventario de Dominio", "Modelado de Servicios, Inventario de Dominio", "Análisis de Inventario, Inventario Empresarial", "Orientación a servicios, Inventario Empresarial"],
+  correct: [0],
+  explanation: "Durante el análisis de inventario se detectó la complejidad. Se aplica Inventario de Dominio para un segmento específico."
+},
+{
+  q: "Un servicio con 5 consumidores debe dividirse. Aplicamos _______ pero rompe el contrato. Entonces aplicamos _______ para preservarlo.",
+  options: ["Capacidad Descompuesta, Capacidad Proxy", "Descomposición de Servicios, Capacidad Proxy", "Descomposición de Servicios, Enlace de Entidades", "Ninguna de las anteriores"],
+  correct: [1],
+  explanation: "Descomposición de Servicios divide el servicio. Capacidad Proxy preserva el contrato original para los consumidores existentes."
+},
+{
+  q: "Expertos de negocio querían entidades de grano fino, pero la infraestructura no soporta composiciones grandes. Se modeló uno grueso con __________. Cuando se actualice, se puede aplicar _______ para dividirlo.",
+  options: ["Capacidad Descompuesta, Descomposición de Servicios", "Abstracción de Entidad, Descomposición de Servicios", "Capacidad Descompuesta, Endpoint Ligero", "Contexto Agnóstico, Descomposición de Servicios"],
+  correct: [0],
+  explanation: "Capacidad Descompuesta agrupa todo en un servicio grueso. Descomposición de Servicios permitirá dividirlo cuando la infraestructura mejore."
+},
+{
+  q: "Alternativa más natural a Capacidad Descompuesta para REST: patrón ________, que preserva centralización combinado con ________.",
+  options: ["Redireccionamiento de Endpoints, Enlace de Entidades", "Endpoint Ligero, Enlace de Entidades", "Centralización de la Lógica, Endpoint Ligero", "Contexto Agnóstico, Descomposición de Servicios"],
+  correct: [1],
+  explanation: "Endpoint Ligero es la alternativa REST a Capacidad Descompuesta, y Enlace de Entidades preserva la centralización de la lógica."
+},
+{
+  q: "Quería crear la capacidad más reutilizable. Comencé con __________ al organizar la lógica agnóstica. Luego apliqué _____ para soportar participación en múltiples composiciones.",
+  options: ["Capacidad Agnóstica, Capacidad de Recomposición", "Capacidad Agnóstica, Composición de Servicios", "Centralización de la Lógica, Abstracción de Procesos", "Contexto Agnóstico, Descomposición de Servicios"],
+  correct: [0],
+  explanation: "Capacidad Agnóstica organiza la lógica reutilizable. Capacidad de Recomposición asegura participación en múltiples composiciones."
+},
+{
+  q: "Al comparar programadores en SOA vs. desarrollo tradicional en silos, ¿cuál afirmación es cierta?",
+  options: ["En SOA resuelven problemas de diseño más complejos con más decisiones.", "En SOA colaboran directamente con analistas de negocio.", "En SOA se les da menos libertad creativa porque deben seguir estándares de diseño predeterminados.", "Ninguna de las anteriores."],
+  correct: [2],
+  explanation: "En SOA, los programadores tienen menos libertad creativa porque deben seguir estándares de diseño que predeterminan varias decisiones."
+},
+{
+  q: "¿Por qué es importante identificar los sistemas de automatización existentes durante el análisis orientado a servicios?",
+  options: ["Permite determinar exactamente cuántos candidatos se definirán.", "Ayuda a tomar conciencia de posibles limitaciones que influyen en cómo modelar los servicios.", "Permite que cada candidato se limite a encapsular una API de sistema.", "Ninguna de las anteriores."],
+  correct: [1],
+  explanation: "Identificar sistemas existentes ayuda a conocer limitaciones y consideraciones prácticas que influyen en el modelado."
+},
+{
+  q: "¿Cuál afirmación es cierta sobre el especialista en gobernanza?",
+  options: ["Puede orientar al analista y arquitecto sobre cómo las decisiones de análisis afectan la gobernanza.", "Puede orientar al arquitecto y desarrolladores sobre consideraciones de gobernanza.", "El custodio del registro puede colaborar con él para establecer prácticas de gobernanza.", "Todas estas afirmaciones son ciertas."],
+  correct: [3],
+  explanation: "Todas son funciones válidas del especialista en gobernanza en un proyecto SOA."
+},
+{
+  q: "Los candidatos a servicios suelen utilizarse como punto de partida para el proceso de diseño orientado a servicios.",
+  options: ["Verdadero", "Falso"],
+  correct: [0],
+  explanation: "Los candidatos conceptuales del análisis son el punto de partida para crear los contratos físicos en la fase de diseño."
+},
+{
+  q: "Al recopilar información para definir lógica de negocio para encapsulación de servicios, ¿qué tipo de información es útil?",
+  options: ["Documentos de negocio para derivar entidades", "Esquemas de bases de datos que definen atributos", "Políticas de negocio que regulan el flujo de datos", "Todas las anteriores."],
+  correct: [3],
+  explanation: "Documentos de negocio, esquemas de BD y políticas de negocio son todos útiles para definir la lógica a encapsular."
+},
+{
+  q: "¿Cuál es el principal factor empresarial que impulsa la adopción de SOA?",
+  options: ["Reducir los costes de hardware", "Mejorar la agilidad de la organización", "Estandarizar los lenguajes de programación", "Aumentar el tiempo de actividad de los servidores"],
+  correct: [1],
+  explanation: "El principal impulsor de SOA es mejorar la agilidad organizacional mediante servicios reutilizables y componibles."
+},
+{
+  q: "¿A qué se refiere 'abstracción de servicios' en SOA?",
+  options: ["Ocultar a los usuarios los detalles de implementación subyacente", "Definir la ubicación física de un servicio", "Documentar el código fuente de un servicio", "Cifrar los mensajes del servicio"],
+  correct: [0],
+  explanation: "La abstracción de servicios oculta los detalles internos de implementación a los consumidores del servicio."
+},
+{
+  q: "¿Qué pilar de SOA enfatiza que un servicio debe minimizar dependencias respecto a otros servicios?",
+  options: ["Reutilización de servicios", "Autonomía de los servicios", "Acoplamiento débil de los servicios", "Abstracción de los servicios"],
+  correct: [2],
+  explanation: "El acoplamiento débil (loose coupling) minimiza las dependencias entre servicios."
+},
+{
+  q: "¿Cuál es la estrategia de ejecución de proyectos SOA más costosa y que requiere más tiempo?",
+  options: ["abajo-arriba", "arriba-abajo", "de punto medio", "indirecta"],
+  correct: [1],
+  explanation: "Top-down es la más costosa porque requiere un análisis inicial exhaustivo antes de proceder al desarrollo."
+},
+{
+  q: "Los proyectos SOA alargan el ciclo de vida tradicional porque:",
+  options: ["requieren mayor esfuerzo de análisis previo", "exigen colaboración más estrecha entre negocios y tecnología", "exigen priorización de requisitos tácticos y estratégicos", "introducen nuevas funciones en el proyecto"],
+  correct: [0,1,2,3],
+  explanation: "Todas son razones por las que los proyectos SOA alargan el ciclo de vida tradicional."
+},
+{
+  q: "El proyecto del Sistema de Gestión de Inventario sigue un enfoque abajo-arriba con 3 servicios tácticos. ¿Qué objetivo de SOA apoya directamente?",
+  options: ["Mayor interoperabilidad intrínseca", "Mayor alineación entre negocio y tecnología", "Mayor federación", "Ninguna de las anteriores."],
+  correct: [3],
+  explanation: "Un enfoque táctico bottom-up con servicios inmediatos no apoya directamente ninguno de los objetivos estratégicos de SOA."
+},
+{
+  q: "Las personas que desempeñan la función de ____________ suelen asumir también la de ____________, ya que una crea ____________ y la otra las evoluciona.",
+  options: ["arquitecto de servicios, arquitecto empresarial, normas de la industria", "arquitecto de servicios, responsable de servicios, normas de la industria", "arquitecto empresarial, responsable de normas de diseño empresarial, normas de diseño", "responsable de políticas, especialista en gobernanza, normas de diseño"],
+  correct: [2],
+  explanation: "El arquitecto empresarial crea normas de diseño; el responsable de normas de diseño empresarial las evoluciona y aplica."
+},
+{
+  q: "La razón por la que un especialista en gobernanza participa en fases previas a la implementación es porque:",
+  options: ["La gobernanza es un subproceso del diseño orientado a servicios.", "Es necesario evaluar consideraciones de gobernanza y su impacto final.", "En la mayoría de proyectos SOA, el especialista en gobernanza realiza el análisis de servicios.", "Ninguna de las anteriores."],
+  correct: [1],
+  explanation: "El especialista en gobernanza participa tempranamente para evaluar el impacto de las decisiones en la gobernanza futura."
+},
+{
+  q: "¿Cuál afirmación es falsa sobre roles y fases del proyecto?",
+  options: ["El especialista en control de calidad es el más importante en la fase de pruebas.", "Analista, responsable de normas y arquitecto empresarial están activos en la definición del inventario.", "Un responsable del registro protege la integridad de un servicio modelando capacidades.", "La función de analista puede ser desempeñada por el arquitecto o analista de negocios."],
+  correct: [2],
+  explanation: "El responsable del registro NO modela capacidades; eso lo hace el analista de servicios. El responsable del registro gestiona los registros."
+},
+{
+  q: "Al reorganizar funciones de TI para SOA, es habitual asignar la función de arquitecto empresarial al especialista en comunicaciones técnicas.",
+  options: ["Verdadero", "Falso"],
+  correct: [1],
+  explanation: "Falso. Son roles completamente diferentes con responsabilidades distintas."
+}
+];

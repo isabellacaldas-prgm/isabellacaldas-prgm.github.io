@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Certificación Analista SOA S90.04</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; padding: 20px; color: #333; }
+    .quiz-container { max-width: 750px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 30px; }
+    .quiz-header { text-align: center; margin-bottom: 25px; }
+    .quiz-header h1 { font-size: 1.4rem; color: #1a73e8; }
+    .quiz-header p { color: #666; font-size: 0.85rem; margin-top: 5px; }
+    .progress-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 4px; margin: 15px 0; overflow: hidden; }
+    .progress-fill { height: 100%; background: #1a73e8; border-radius: 4px; transition: width 0.4s ease; }
+    .progress-text { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 20px; }
+    .question-type { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; }
+    .type-single { background: #e8f0fe; color: #1a73e8; }
+    .type-multiple { background: #fef3e0; color: #e65100; }
+    .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 20px; line-height: 1.6; }
+    .options-list { list-style: none; }
+    .option-item { margin-bottom: 10px; }
+    .option-btn { display: block; width: 100%; text-align: left; padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 8px; background: #fff; font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease; line-height: 1.4; }
+    .option-btn:hover:not(.disabled) { border-color: #1a73e8; background: #e8f0fe; }
+    .option-btn.disabled { cursor: not-allowed; opacity: 0.9; }
+    .option-btn.selected { border-color: #1a73e8; background: #e8f0fe; font-weight: 600; }
+    .option-btn.correct { border-color: #0f9d58; background: #e6f4ea; color: #1e4620; font-weight: 600; }
+    .option-btn.incorrect { border-color: #db4437; background: #fce8e6; color: #5f2120; }
+    .option-btn.missed { border-color: #0f9d58; background: #e6f4ea; color: #1e4620; border-style: dashed; }
+</style>
+</head>
+<body>
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h1>📝 Quiz - Certificación Analista SOA (S90.04)</h1>
+    <p>Preparación para el examen de certificación</p>
+  </div>
+  <div id="config-section" style="text-align:center; padding:20px;">
+    <h2 style="color:#1a73e8; margin-bottom:15px;">Configuración del Quiz</h2>
+    <p style="color:#666; margin-bottom:20px; font-size:0.9rem;">Selecciona cuántas preguntas quieres responder (aleatorias del banco completo).</p>
+    <div style="margin:10px 0;">
+      <label style="font-size:0.9rem;">Cantidad:</label>
+      <select id="num-questions" style="padding:8px 12px; border:2px solid #e0e0e0; border-radius:6px; font-size:0.9rem; margin-left:10px;">
+        <option value="10">10 preguntas</option>
+        <option value="20">20 preguntas</option>
+        <option value="30" selected>30 preguntas</option>
+        <option value="50">50 preguntas</option>
+        <option value="all">Todas</option>
+      </select>
+    </div>
+    <button id="start-btn" style="margin-top:20px; padding:14px 40px; background:#0f9d58; color:#fff; border:none; border-radius:8px; font-size:1.1rem; cursor:pointer;">Comenzar Quiz</button>
+  </div>
+  <div id="quiz-content" style="display:none;">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text" id="progress-text"></div>
+    <div id="question-type" class="question-type type-single"></div>
+    <div class="question-text" id="question-text"></div>
+    <ul class="options-list" id="options-list"></ul>
+    <button id="submit-btn" style="display:none; margin-top:20px; padding:12px 30px; background:#1a73e8; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer;">Confirmar respuesta</button>
+    <div id="feedback" style="display:none; margin-top:18px; padding:15px; border-radius:8px; font-size:0.88rem; line-height:1.6; max-height:300px; overflow-y:auto;"></div>
+    <button id="next-btn" style="display:none; margin-top:15px; padding:12px 30px; background:#1a73e8; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer;">Siguiente →</button>
+  </div>
+  <div id="results" style="display:none; text-align:center;">
+    <h2 style="color:#1a73e8; margin-bottom:15px;">¡Quiz completado!</h2>
+    <div id="score" style="font-size:3rem; font-weight:700; color:#0f9d58; margin:10px 0;"></div>
+    <div id="percentage" style="font-size:1.2rem; color:#666; margin-bottom:15px;"></div>
+    <p id="results-message" style="color:#666; margin-bottom:20px;"></p>
+    <button id="restart-btn" style="padding:12px 30px; background:#1a73e8; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer; margin:5px;">Reiniciar</button>
+    <button id="review-btn" style="padding:12px 30px; background:#5f6368; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer; margin:5px;">Revisar errores</button>
+  </div>
+  <div id="review-section" style="display:none;">
+    <h2 style="color:#db4437; margin-bottom:20px; text-align:center;">Preguntas incorrectas</h2>
+    <div id="review-content"></div>
+    <div style="text-align:center; margin-top:20px;">
+      <button id="back-results-btn" style="padding:12px 30px; background:#1a73e8; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer;">Volver</button>
+    </div>
+  </div>
+</div>
+<script>
